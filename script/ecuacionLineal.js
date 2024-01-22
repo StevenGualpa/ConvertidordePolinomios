@@ -18,29 +18,22 @@ function graficarEcuacionLineal(m, b, zoom) {
     const width = canvas.width;
     const height = canvas.height;
 
-    // Limpiar el canvas
     ctx.clearRect(0, 0, width, height);
-
-    // Dibujar los ejes con valores
     dibujarEjesConValores(ctx, width, height, zoom);
 
-    // Dibujar la línea de la ecuación
     ctx.beginPath();
     ctx.strokeStyle = 'blue';
-    ctx.moveTo(0, height / 2 - b * zoom * 50); // Ajuste para escala y zoom
-    for (let x = 0; x <= width; x++) {
-        let y = m * (x - width / 2) / (50 / zoom) + b;
-        ctx.lineTo(x, height / 2 - y * zoom * 50); // Ajuste para escala y zoom
-    }
+    // Ajuste para que la línea cubra todo el ancho del canvas
+    ctx.moveTo(0, height / 2 - b * zoom * 50);
+    ctx.lineTo(width, height / 2 - (m * width / 2 + b) * zoom * 50);
     ctx.stroke();
 }
 
 
 function dibujarEjesConValores(ctx, width, height, zoom) {
-    const paso = 50 * zoom; // Distancia entre las marcas de los ejes
-    const valorMaximo = (width / 2) / paso; // Valor máximo en el eje x
+    const paso = 50 * zoom;
+    const valorMaximo = (width / 2) / paso;
 
-    // Dibujar líneas de cuadrícula
     ctx.strokeStyle = "#ddd";
     ctx.beginPath();
     for (let x = paso; x < width / 2; x += paso) {
@@ -57,7 +50,6 @@ function dibujarEjesConValores(ctx, width, height, zoom) {
     }
     ctx.stroke();
 
-    // Dibujar los ejes X e Y
     ctx.strokeStyle = "#000";
     ctx.lineWidth = 2;
     ctx.beginPath();
@@ -67,26 +59,21 @@ function dibujarEjesConValores(ctx, width, height, zoom) {
     ctx.lineTo(width / 2, height);
     ctx.stroke();
 
-    // Restaurar el ancho de línea para las marcas y valores
     ctx.lineWidth = 1;
     ctx.fillStyle = "#000";
     for (let i = -valorMaximo; i <= valorMaximo; i++) {
         const x = width / 2 + i * paso;
         const y = height / 2 - i * paso;
 
-        // Redondear los valores a un máximo de dos decimales
         let valorEtiqueta = Math.round(i * 10 / zoom) / 10;
-
-        // Dibujar marcas y valores en el eje X
-        if (i !== 0) { // Evitar el origen
+        if (i !== 0) {
             ctx.fillText(valorEtiqueta, x, height / 2 + 20);
             ctx.beginPath();
             ctx.moveTo(x, height / 2 - 10);
             ctx.lineTo(x, height / 2 + 10);
             ctx.stroke();
         }
-        // Dibujar marcas y valores en el eje Y
-        if (i !== 0) { // Evitar el origen
+        if (i !== 0) {
             ctx.fillText(-valorEtiqueta, width / 2 + 5, y);
             ctx.beginPath();
             ctx.moveTo(width / 2 - 10, y);
@@ -95,8 +82,6 @@ function dibujarEjesConValores(ctx, width, height, zoom) {
         }
     }
 }
-
-
 
 // Funciones para manejar el zoom
 function zoomIn() {
@@ -111,9 +96,6 @@ function zoomOut() {
     actualizarNivelZoom();
 }
 
-// Función para actualizar el nivel de zoom en la interfaz de usuario
 function actualizarNivelZoom() {
     document.getElementById('zoomLevel').textContent = `Zoom: ${zoomFactor.toFixed(1)}x`;
 }
-
-
