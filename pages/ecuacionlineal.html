@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecuación Lineal</title>
     <link rel="stylesheet" href="../CSS/ecuacionlineal.css">
     <link rel="stylesheet" href="../CSS/menu.css">
     <link id="icon-page" rel="icon" type="image/png" href="../img/polynomial_icon.svg">
+    <title>Ecuación Lineal</title>
 </head>
-
 <body>
     <div class="menu">
+        <!-- Contenido del menú -->
         <button id="hamburger" onclick="menu()">
             <img src="../img/menu_hamburger.svg" width="48px" height="48px">
         </button>
@@ -26,43 +25,36 @@
             </button>
         </nav>
     </div>
-    <div class="page" id="page">
-        <div class="bloc">
-            <div class="fixed-bloc">
-                <h1>Ecuación Lineal: y = mx + b</h1>
-                <form id="form">
-                    <div>
-                        <label for="m">m (pendiente): </label>
-                        <input type="number" id="m" name="m" required>
-                    </div>
-                    <div>
-                        <label for="b">b (intercepto y): </label>
-                        <input type="number" id="b" name="b" required>
-                    </div>
-                    <button  onclick="calcularEcuacionLineal()">Calcular</button>
-                </form>
+    <div class="container">
+        <h1>Ecuación Lineal: y = mx + b</h1>
+        <form id="linealForm">
+            <div>
+                <label for="m">m (pendiente):</label>
+                <input type="number" id="m" name="m" required>
             </div>
-            <div id="graficoLineal" style="width: 500px; height: 500px;">
-                <!-- El gráfico se dibujará aquí -->
-                <canvas id="graficoCanvas" width="500" height="500"></canvas>
+            <div>
+                <label for="b">b (intercepto):</label>
+                <input type="number" id="b" name="b" required>
             </div>
-            <div class="zoom-controls">
-                <button onclick="zoomOut()">-</button>
-                <span id="zoomLevel">Zoom: 1x</span>
-                <button onclick="zoomIn()">+</button>
-            </div>
+            <button type="button" onclick="calcularEcuacionLineal()">Calcular</button>
+        </form>
+        <div id="graficoLineal" style="width: 500px; height: 500px;">
+            <canvas id="graficoCanvas" width="500" height="500"></canvas>
+        </div>
+        <div class="zoom-controls">
+            <button onclick="zoomOut()">-</button>
+            <input type="number" id="zoomInput" value="1" min="0.1" step="0.1">
+            <button onclick="zoomIn()">+</button><br>
+            <button onclick="actualizarZoomManual()">Actualizar Zoom</button>
+            <br>
+            <span id="zoomLevel">Zoom: 1x</span>
         </div>
     </div>
-
     <div id="overlay" onclick="menu()" hidden></div>
 </body>
 <footer>
-    <!-- Contenido del pie de página -->
     <p>&copy; 2024 Convertidor de Polinomios</p>
 </footer>
-
 </html>
-
-<script src="../script/menu.js"></script>
 <script src="../script/ecuacionLineal.js"></script>
-<script src="../script/language.js"></script>
+<script src="../script/menu.js"></script>
