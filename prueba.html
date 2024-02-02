@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion with Custom Icons</title>
+    <style>
+      /* Styles for Accordion */
+      .accordion {
+        border: 1px solid #e2e8f0;
+        border-radius: 0.375rem;
+        overflow: hidden;
+        margin-bottom: 0.75rem;
+      }
+
+      .accordion-header {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        cursor: pointer;
+        user-select: none;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .accordion-body {
+        padding: 0.75rem;
+        display: none;
+      }
+
+      .accordion-body.active {
+        display: block;
+      }
+
+      .accordion svg {
+        height: 1.25rem;
+        width: 1.25rem;
+        stroke-width: 2;
+        stroke: currentColor;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .accordion svg.rotate-180 {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Accordion Item 1 -->
+    <div class="accordion" id="accordion1">
+      <div class="accordion-header" onclick="handleOpen(1)">
+        <span class="accordion-icon" id="icon1"></span>
+        What is Material Tailwind?
+      </div>
+      <div class="accordion-body" id="body1">
+        We're not always in the position that we want to be at. We're constantly
+        growing. We're constantly making mistakes. We're constantly trying to
+        express ourselves and actualize our dreams.
+      </div>
+    </div>
+
+    <!-- Accordion Item 2 -->
+    <div class="accordion" id="accordion2">
+      <div class="accordion-header" onclick="handleOpen(2)">
+        <span class="accordion-icon" id="icon2"></span>
+        How to use Material Tailwind?
+      </div>
+      <div class="accordion-body" id="body2">
+        We're not always in the position that we want to be at. We're constantly
+        growing. We're constantly making mistakes. We're constantly trying to
+        express ourselves and actualize our dreams.
+      </div>
+    </div>
+
+    <!-- Accordion Item 3 -->
+    <div class="accordion" id="accordion3">
+      <div class="accordion-header" onclick="handleOpen(3)">
+        <span class="accordion-icon" id="icon3"></span>
+        What can I do with Material Tailwind?
+      </div>
+      <div class="accordion-body" id="body3">
+        We're not always in the position that we want to be at. We're constantly
+        growing. We're constantly making mistakes. We're constantly trying to
+        express ourselves and actualize our dreams.
+      </div>
+    </div>
+
+    <script>
+      function handleOpen(value) {
+        const icon = document.getElementById(`icon${value}`);
+        const body = document.getElementById(`body${value}`);
+        const isOpen = body.classList.contains("active");
+
+        // Cerrar todos los acordeones antes de abrir el seleccionado
+        const allBodies = document.querySelectorAll(".accordion-body");
+        const allIcons = document.querySelectorAll(".accordion-icon");
+
+        allBodies.forEach((element) => {
+          element.classList.remove("active");
+        });
+
+        allIcons.forEach((element) => {
+          element.classList.remove("rotate-180");
+        });
+
+        // Toggle active class para el cuerpo y rotar el ícono
+        body.classList.toggle("active", !isOpen);
+        icon.classList.toggle("rotate-180", !isOpen);
+      }
+    </script>
+  </body>
+</html>

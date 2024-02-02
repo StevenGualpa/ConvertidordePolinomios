@@ -63,3 +63,24 @@ function businessmode() {
 }
 
 
+function handleOpen(value) {
+    const icon = document.getElementById(`icon${value}`);
+    const body = document.getElementById(`body${value}`);
+    const isOpen = body.classList.contains("active");
+
+    // Cerrar todos los acordeones antes de abrir el seleccionado
+    const allBodies = document.querySelectorAll(".accordion-body");
+    const allIcons = document.querySelectorAll(".accordion-icon");
+
+    allBodies.forEach((element) => {
+      element.classList.remove("active");
+    });
+
+    allIcons.forEach((element) => {
+      element.classList.remove("rotate-180");
+    });
+
+    // Toggle active class para el cuerpo y rotar el ícono
+    body.classList.toggle("active", !isOpen);
+    icon.classList.toggle("rotate-180", !isOpen);
+  }

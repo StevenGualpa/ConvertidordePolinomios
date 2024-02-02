@@ -7,11 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/index.css">
     <link rel="stylesheet" href="../CSS/menu.css">
+    <link rel="stylesheet" href="../CSS/barramenu.css" />
     <title>Convertidor de Polinomios</title>
     <link id="icon-page" rel="icon" type="image/png" href="../img/polynomial_icon.svg">
 </head>
 
 <body>
+    <div class="menu_container">
+        <div class="tutorial">
+            <ul>
+                <li onclick="location.href='../index.html'">
+                    <h3>Pagina Pincipal</h3>
+                </li>
+                <li>
+                    <h3>Graficas de Ecuaciones</h3>
+                    <ul>
+                        <li onclick="location.href='ecuacionLineal.html'">Ecuación Lineal
+                        </li>
+                        <li onclick="location.href='ecuacionCuadratica.html'">Ecuación Cuadratica
+                        </li>
+                        <li onclick="location.href='ecuacionPolinomica.html'">Ecuación Polinómica</li>
+                        <li onclick="location.href='ecuaciontrinomio.html'">Ecuación Polinómica General</li>
+                        <li onclick="location.href='ecuacionCubica.html'">Ecuación Polinomica Cúbica</li>
+                        <li onclick="location.href='ecuaciongradosuperior.html'">Ecuación Polinomica de Grado Superior
+                        </li>
+                        <li onclick="location.href='ecuacionCubicaconRaices.html'">Ecuación Cúbica con Raíces</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Convertidores</h3>
+                    <ul>
+                        <li onclick="location.href='cuadratico.html'">Polinomios cuadraticos</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Otras Operaciones</h3>
+                    <ul>
+                        <li onclick="location.href='operacionesbasicas.html'">Operaciones basicas</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div class="menu">
         <button id="hamburger" onclick="menu()">
             <img src="../img/menu_hamburger.svg" width="48px" height="48px">
@@ -31,6 +69,45 @@
     <div class="page" id="page">
         <div class="bloc">
             <div class="fixed-bloc">
+                <!-- Sección de Descripción -->
+                <!-- Accordion Item 1 -->
+                <div class="accordion" id="accordion1">
+                    <div class="accordion-header" onclick="handleOpen(1)">
+                        <span class="accordion-icon" id="icon1"></span>
+                        <h1 class="titu">Introducción a la conversión del polinomio cuadrático</h1>
+                    </div>
+                    <div class="accordion-body" id="body1">
+                        <p>La conversión de un polinomio cuadrático se refiere a expresar dicho polinomio en diversas
+                            formas equivalentes. Las formas más comunes de un polinomio cuadrático son la forma
+                            estándar, la forma factorizada y la forma canónica. Cada una de estas formas tiene sus
+                            propias ventajas y aplicaciones específicas.</p>
+                    </div>
+                </div>
+
+                <!-- Sección Cómo Funciona -->
+                <!-- Accordion Item 2 -->
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-header" onclick="handleOpen(2)">
+                        <span class="accordion-icon" id="icon2"></span>
+                        <h1>Cómo Funciona</h1>
+                    </div>
+                    <div class="accordion-body" id="body2">
+                        <p>La conversión de un polinomio cuadrático implica expresar el polinomio en diferentes formas
+                            equivalentes. Aquí te explico cómo funcionan las conversiones entre las formas más comunes:
+                            la forma estándar, la forma factorizada y la forma canónica.
+                        <h3>Conversión a Forma Estándar:</h3>
+                        Puedes obtener la forma estándar expandiendo cualquier forma factorizada o canónica.
+                        La expansión implica distribuir términos y combinar términos semejantes.
+                        <h3>Conversión a Forma Factorizada:</h3>
+                        Puedes factorizar un polinomio cuadrático usando técnicas como factorización cuadrática o
+                        factorización por agrupación.
+                        <h3>Conversión a Forma Canónica:</h3>
+                        La forma canónica es a(x−h)^2+k donde (ℎ,k) es el vértice de la parábola.
+                        Para obtener la forma canónica, puedes completar el cuadrado, llevando el polinomio a la forma (x−h)^2  y luego multiplicar por a y sumar k.
+                        </p>
+                    </div>
+                </div>
+
                 <h2>f(x) = ax²+bx+c</h2>
                 <form id="form">
                     <div>
@@ -69,7 +146,7 @@
 </body>
 <footer>
     <!-- Contenido del pie de página -->
-    <p>&copy; 2024 Convertidor de Polinomios</p>
+    <p>&copy; 2024 Calculadora</p>
 </footer>
 
 </html>

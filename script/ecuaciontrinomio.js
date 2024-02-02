@@ -13,6 +13,26 @@ function calcularEcuacionPolinomicaGeneral() {
     cActual = parseFloat(document.getElementById('c').value);
     pActual = parseFloat(document.getElementById('p').value);
 
+    // Validar campos vacíos
+    if ( !aActual || !nActual || !bActual || !mActual || !cActual || !pActual) {
+        alert("Por favor, completa todos los campos con valores numéricos.");
+        return;
+    }
+
+    // Validar si son números reales
+    if (isNaN(aActual) || isNaN(nActual) || isNaN(bActual) || isNaN(mActual) || isNaN(cActual) || isNaN(pActual)) {
+        alert("Ingresa valores numéricos válidos en todos los campos.");
+        return;
+    }
+
+    // Limitar los valores numéricos hasta 1000
+    if (Math.abs(aActual) > 1000 || Math.abs(nActual) > 1000 || Math.abs(bActual) > 1000 || Math.abs(mActual) > 1000 || Math.abs(cActual) > 1000 || Math.abs(pActual) > 1000) {
+        alert("Ingresa valores numéricos menores o iguales a 1000 en todos los campos.");
+        return;
+    }
+
+    document.getElementById('opened-bloc').toggleAttribute('hidden', false)
+
     graficarEcuacionPolinomicaGeneral(aActual, nActual, bActual, mActual, cActual, pActual, zoomFactor);
 }
 

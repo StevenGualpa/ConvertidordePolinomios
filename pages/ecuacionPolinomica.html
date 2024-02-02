@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/ecuacionlineal.css">
     <link rel="stylesheet" href="../CSS/menu.css">
+    <link rel="stylesheet" href="../CSS/barramenu.css" />
     <link id="icon-page" rel="icon" type="image/png" href="../img/polynomial_icon.svg">
     <title>Ecuación Polinómica</title>
 </head>
+
 <body>
+
+    <div class="menu_container">
+        <div class="tutorial">
+            <ul>
+                <li onclick="location.href='../index.html'">
+                    <h3>Pagina Pincipal</h3>
+                </li>
+                <li>
+                    <h3>Graficas de Ecuaciones</h3>
+                    <ul>
+                        <li onclick="location.href='ecuacionLineal.html'">Ecuación Lineal
+                        </li>
+                        <li onclick="location.href='ecuacionCuadratica.html'">Ecuación Cuadratica
+                        </li>
+                        <li onclick="location.href='ecuacionPolinomica.html'">Ecuación Polinómica</li>
+                        <li onclick="location.href='ecuaciontrinomio.html'">Ecuación Polinómica General</li>
+                        <li onclick="location.href='ecuacionCubica.html'">Ecuación Polinomica Cúbica</li>
+                        <li onclick="location.href='ecuaciongradosuperior.html'">Ecuación Polinomica de Grado Superior
+                        </li>
+                        <li onclick="location.href='ecuacionCubicaconRaices.html'">Ecuación Cúbica con Raíces</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Convertidores</h3>
+                    <ul>
+                        <li onclick="location.href='cuadratico.html'">Polinomios cuadraticos</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Otras Operaciones</h3>
+                    <ul>
+                        <li onclick="location.href='operacionesbasicas.html'">Operaciones basicas</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div class="menu">
         <button id="hamburger" onclick="menu()">
             <img src="../img/menu_hamburger.svg" width="48px" height="48px">
@@ -24,58 +65,83 @@
             </button>
         </nav>
     </div>
-    <div class="container">
-          <!-- Sección de Descripción -->
-          <div class="descripcion">
 
-            <!-- Sección de Descripción -->
-                <h2>Introducción a la Ecuación Polinómica</h2>
-                <p>La ecuación polinómica de la forma y = ax^n + bx^n representa una función polinómica donde 'n' es el grado del polinomio y 'a' y 'b' son coeficientes. Estas ecuaciones pueden formar una variedad de curvas en el plano, dependiendo de los valores de 'a', 'b' y 'n'.</p>
+    <div class="page">
+        <div class="bloc">
+            <div class="fixed-bloc">
+                <!-- Sección de Descripción -->
+                <!-- Accordion Item 1 -->
+                <div class="accordion" id="accordion1">
+                    <div class="accordion-header" onclick="handleOpen(1)">
+                        <span class="accordion-icon" id="icon1"></span>
+                        <h1 class="titu">Introducción a la Ecuación Polinómica</h1>
+                    </div>
+                    <div class="accordion-body" id="body1">
+                        <p>La ecuación polinómica de la forma y = ax^n + bx^n representa una función polinómica donde
+                            'n' es el grado del polinomio y 'a' y 'b' son coeficientes. Estas ecuaciones pueden formar
+                            una variedad de curvas en el plano, dependiendo de los valores de 'a', 'b' y 'n'.</p>
+                    </div>
+                </div>
 
-              <!-- Sección Cómo Funciona -->
-                <h2>Cómo Funciona</h2>
-                <p>Para graficar una ecuación polinómica, introduce los valores de 'a', 'b' y 'n' en los campos correspondientes y haz clic en "Calcular". La gráfica mostrará cómo se ve la ecuación en el plano cartesiano. Puedes ajustar el nivel de zoom y arrastrar el gráfico para explorar distintas áreas y comprender mejor el comportamiento del polinomio.</p>
+                <!-- Sección Cómo Funciona -->
+                <!-- Accordion Item 2 -->
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-header" onclick="handleOpen(2)">
+                        <span class="accordion-icon" id="icon2"></span>
+                        <h1>Cómo Funciona</h1>
+                    </div>
+                    <div class="accordion-body" id="body2">
+                        <p>Para graficar una ecuación polinómica, introduce los valores de 'a', 'b' y 'n' en los campos
+                            correspondientes y haz clic en "Calcular". La gráfica mostrará cómo se ve la ecuación en el
+                            plano cartesiano. Puedes ajustar el nivel de zoom y arrastrar el gráfico para explorar
+                            distintas áreas y comprender mejor el comportamiento del polinomio.</p>
+                    </div>
+                </div>
 
-    
+                <h1>Ecuación Polinómica: y = ax^n + bx^n</h1>
+                <form id="polinomicaForm">
+                    <div>
+                        <label for="a">a: </label>
+                        <input type="number" id="a" name="a" required>
+                    </div>
+                    <div>
+                        <label for="b">b: </label>
+                        <input type="number" id="b" name="b" required>
+                    </div>
+                    <div>
+                        <label for="n">n (exponente): </label>
+                        <input type="number" id="n" name="n" required>
+                    </div>
+                    <button type="button" onclick="calcularEcuacionPolinomica()">Calcular</button>
+                </form>
             </div>
-        <h1>Ecuación Polinómica: y = ax^n + bx^n</h1>
-        <form id="polinomicaForm">
-            <div>
-                <label for="a">a: </label>
-                <input type="number" id="a" name="a" required>
-            </div>
-            <div>
-                <label for="b">b: </label>
-                <input type="number" id="b" name="b" required>
-            </div>
-            <div>
-                <label for="n">n (exponente): </label>
-                <input type="number" id="n" name="n" required>
-            </div>
-            <button type="button" onclick="calcularEcuacionPolinomica()">Calcular</button>
-        </form>
-        <div id="graficoLineal" style="width: 500px; height: 500px;">
-            <canvas id="graficoCanvas" width="500" height="500"></canvas>
-        </div>
-        <div class="zoom-controls">
-            <button onclick="zoomOut()">-</button>
-            <input type="number" id="zoomInput" value="1" min="0.1" step="0.1">
-            <button onclick="zoomIn()">+</button>
-            <br>
+            <div id=opened-bloc hidden>
+                <p id="reponse">
+                <div id="graficoLineal" style="width: 500px; height: 500px;">
+                    <canvas id="graficoCanvas" width="500" height="500"></canvas>
+                </div>
+                <div class="zoom-controls">
+                    <button onclick="zoomOut()">-</button>
+                    <input type="number" id="zoomInput" value="1" min="0.1" step="0.1">
+                    <button onclick="zoomIn()">+</button>
+                    <br>
 
-            <button onclick="actualizarZoomManual()">Actualizar Zoom</button>
-            <br>
-            <span id="zoomLevel">Zoom: 1x</span>
+                    <button onclick="actualizarZoomManual()">Actualizar Zoom</button>
+                    <br>
+                    <span id="zoomLevel">Zoom: 1x</span>
 
+                </div>
+                </p>
+            </div>
         </div>
     </div>
-   
+
     <div id="overlay" onclick="menu()" hidden></div>
+    <footer>
+        <p>&copy; 2024 Calculadora</p>
+    </footer>
 </body>
-<footer>
-    <!-- Contenido del pie de página -->
-    <p>&copy; 2024 Convertidor de Polinomios</p>
-</footer>
+
 </html>
 
 <script src="../script/ecuacionPolinomica.js"></script>

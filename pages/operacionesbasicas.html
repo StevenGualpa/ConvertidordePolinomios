@@ -2,24 +2,77 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/index.css">
-    <link rel="stylesheet" href="../CSS/menu.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/index.css" />
+    <link rel="stylesheet" href="../CSS/menu.css" />
+    <link rel="stylesheet" href="../CSS/barramenu.css" />
     <title>Convertidor de Polinomios</title>
-    <link id="icon-page" rel="icon" type="image/png" href="../img/polynomial_icon.svg">
+    <link id="icon-page" rel="icon" type="image/png" href="../img/polynomial_icon.svg" />
 </head>
 
 <body>
+    <div class="menu_container">
+        <div class="tutorial">
+            <ul>
+                <li onclick="location.href='../index.html'">
+                    <h3>Pagina Pincipal</h3>
+                </li>
+                <li>
+                    <h3>Graficas de Ecuaciones</h3>
+                    <ul>
+                        <li onclick="location.href='ecuacionLineal.html'">
+                            Ecuación Lineal
+                        </li>
+                        <li onclick="location.href='ecuacionCuadratica.html'">
+                            Ecuación Cuadratica
+                        </li>
+                        <li onclick="location.href='ecuacionPolinomica.html'">
+                            Ecuación Polinómica
+                        </li>
+                        <li onclick="location.href='ecuaciontrinomio.html'">
+                            Ecuación Polinómica General
+                        </li>
+                        <li onclick="location.href='ecuacionCubica.html'">
+                            Ecuación Polinomica Cúbica
+                        </li>
+                        <li onclick="location.href='ecuaciongradosuperior.html'">
+                            Ecuación Polinomica de Grado Superior
+                        </li>
+                        <li onclick="location.href='ecuacionCubicaconRaices.html'">
+                            Ecuación Cúbica con Raíces
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Convertidores</h3>
+                    <ul>
+                        <li onclick="location.href='cuadratico.html'">
+                            Polinomios cuadraticos
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Otras Operaciones</h3>
+                    <ul>
+                        <li onclick="location.href='operacionesbasicas.html'">
+                            Operaciones basicas
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div class="menu">
         <button id="hamburger" onclick="menu()">
-            <img src="../img/menu_hamburger.svg" width="48px" height="48px">
+            <img src="../img/menu_hamburger.svg" width="48px" height="48px" />
         </button>
         <nav id="nav" hidden>
             <h3>Style :</h3>
             <button class="nav-button" id="darkmode-button" onclick="darkmode()">
-                <img src="../img/darkmode_white.svg" width="16px" height="16px">
+                <img src="../img/darkmode_white.svg" width="16px" height="16px" />
                 Modo sombra
             </button>
             <button class="nav-button" id="businessmode-button" onclick="businessmode()">
@@ -31,6 +84,60 @@
     <div class="page" id="page">
         <div class="bloc">
             <div class="fixed-bloc">
+                <!-- Sección de Descripción -->
+                <!-- Accordion Item 1 -->
+                <div class="accordion" id="accordion1">
+                    <div class="accordion-header" onclick="handleOpen(1)">
+                        <span class="accordion-icon" id="icon1"></span>
+                        <h1 class="titu">Introducción a operaciones básicas con polinomio cuadrático</h1>
+                    </div>
+                    <div class="accordion-body" id="body1">
+                        <p>Un polinomio cuadrático es un tipo específico de polinomio de segundo grado. La forma general
+                            de un polinomio cuadrático es: ax^2+bx+c Donde a, b, y c son coeficientes y x es la
+                            variable. Las operaciones básicas con polinomios cuadráticos incluyen la suma, resta,
+                            multiplicación y factorización.
+                        <h3>Suma y Resta:</h3>
+                        La suma y resta de polinomios cuadráticos se realizan combinando términos semejantes. Para sumar
+                        o restar dos polinomios cuadráticos, agrupa términos similares y suma o resta los coeficientes
+                        correspondientes.
+                        <h3>Multiplicación:</h3>
+                        La multiplicación de polinomios cuadráticos implica distribuir cada término del primer polinomio
+                        por cada término del segundo polinomio y luego combinar términos semejantes.
+                        <h3>División:</h3>
+                        La división es el proceso de expresar un polinomio cuadrático como el producto de dos o más
+                        factores. Puedes factorizar un polinomio cuadrático utilizando diversos métodos, como
+                        división por agrupación, división cuadrática o fórmula general.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sección Cómo Funciona -->
+                <!-- Accordion Item 2 -->
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-header" onclick="handleOpen(2)">
+                        <span class="accordion-icon" id="icon2"></span>
+                        <h1>Cómo Funciona</h1>
+                    </div>
+                    <div class="accordion-body" id="body2">
+                        <p>
+                        <h3>Suma y Resta:</h3>
+                        Para sumar o restar dos polinomios cuadráticos, agrupamos términos semejantes. Términos
+                        semejantes son aquellos que tienen la misma potencia de x. Sumamos o restamos los coeficientes
+                        correspondientes de los términos semejantes y mantenemos la misma potencia de x. El resultado es
+                        un nuevo polinomio cuadrático.
+                        <h3>Multiplicación:</h3>
+                        Para multiplicar dos polinomios cuadráticos, distribuimos cada término del primer polinomio por
+                        cada término del segundo polinomio.
+                        Luego, combinamos términos semejantes y simplificamos el resultado.
+                        La multiplicación de dos polinomios cuadráticos da como resultado un nuevo polinomio de cuarto
+                        grado.
+                        <h3>División:</h3>
+                        La división de un polinomio cuadrático implica expresarlo como el producto de dos o más factores.
+                        Puedes usar métodos como la factorización por agrupación, factorización cuadrática o la fórmula general para factorizar un polinomio cuadrático. La factorización es útil para simplificar el polinomio y para encontrar las raíces de la ecuación cuadrática asociada.
+                        </p>
+                    </div>
+                </div>
+
                 <h2>f(x) = ax²+bx+c</h2>
                 <form id="form">
                     <div>
@@ -38,15 +145,15 @@
                     </div>
                     <div>
                         <label>a =</label>
-                        <input type="text" name="a" size="2" required>
+                        <input type="text" name="a" size="2" required />
                     </div>
                     <div>
                         <label>b =</label>
-                        <input type="text" name="b" size="2" required>
+                        <input type="text" name="b" size="2" required />
                     </div>
                     <div>
                         <label>c =</label>
-                        <input type="text" name="c" size="2" required>
+                        <input type="text" name="c" size="2" required />
                     </div>
                 </form>
                 <form id="form">
@@ -55,34 +162,31 @@
                     </div>
                     <div>
                         <label>a =</label>
-                        <input type="text" name="a" size="2" required>
+                        <input type="text" name="a" size="2" required />
                     </div>
                     <div>
                         <label>b =</label>
-                        <input type="text" name="b" size="2" required>
+                        <input type="text" name="b" size="2" required />
                     </div>
                     <div>
                         <label>c =</label>
-                        <input type="text" name="c" size="2" required>
+                        <input type="text" name="c" size="2" required />
                     </div>
                 </form>
                 <br />
                 <button onclick="clic()">Calcular</button>
             </div>
-            <div id=opened-bloc>
-                <p id="reponse" hidden>
-                    
-                </p>
-            </div>
+            <div id="opened-bloc">
+                <p id="reponse" hidden></p>
             </div>
         </div>
     </div>
     <div id="overlay" onclick="menu()" hidden></div>
     <script src="../script/operacionesbasicas.js"></script>
     <script src="../script/menu.js"></script>
+    <footer>
+        <p>&copy; 2024 Calculadora</p>
+    </footer>
 </body>
-<footer>
-    <!-- Contenido del pie de página -->
-    <p>&copy; 2024 Convertidor de Polinomios</p>
-</footer>
+
 </html>

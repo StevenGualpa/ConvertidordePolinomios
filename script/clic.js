@@ -131,13 +131,17 @@ let setContent = (id, value) => {
 function clic() {
     let style = sessionStorage.getItem("style");
 
-   
-
     const form = document.getElementById("form");
     let a = form.elements[0].value;
     let b = form.elements[1].value;
     let c = form.elements[2].value;
     console.log(`${a} ; ${b} ; ${c}`);
+
+    // Validar campos vacíos
+    if ( !a || !b || !c ) {
+        alert("Por favor, completa todos los campos con valores numéricos.");
+        return;
+    }
 
     // Validar si son números reales
     if (isNaN(a) || isNaN(b) || isNaN(c)) {

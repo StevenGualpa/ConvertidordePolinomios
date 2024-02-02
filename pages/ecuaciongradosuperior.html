@@ -5,10 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/ecuacionlineal.css">
     <link rel="stylesheet" href="../CSS/menu.css">
+    <link rel="stylesheet" href="../CSS/barramenu.css" />
     <link id="icon-page" rel="icon" type="image/png" href="../img/polynomial_icon.svg">
     <title>Ecuación Cuártica</title>
 </head>
 <body>
+
+    <div class="menu_container">
+        <div class="tutorial">
+          <ul>
+            <li onclick="location.href='../index.html'"><h3>Pagina Pincipal</h3></li>
+            <li>
+              <h3>Graficas de Ecuaciones</h3>
+              <ul>
+                <li onclick="location.href='ecuacionLineal.html'">Ecuación Lineal
+                </li>
+                <li onclick="location.href='ecuacionCuadratica.html'">Ecuación Cuadratica
+                </li>
+                <li onclick="location.href='ecuacionPolinomica.html'">Ecuación Polinómica</li>
+                <li onclick="location.href='ecuaciontrinomio.html'">Ecuación Polinómica General</li>
+                <li onclick="location.href='ecuacionCubica.html'">Ecuación Polinomica Cúbica</li>
+                <li onclick="location.href='ecuaciongradosuperior.html'">Ecuación Polinomica de Grado Superior</li>
+                <li onclick="location.href='ecuacionCubicaconRaices.html'">Ecuación Cúbica con Raíces</li>
+              </ul>
+            </li>
+            <li>
+              <h3>Convertidores</h3>
+              <ul>
+                <li onclick="location.href='cuadratico.html'">Polinomios cuadraticos</li>
+              </ul>
+            </li>
+            <li>
+              <h3>Otras Operaciones</h3>
+              <ul>
+                <li onclick="location.href='operacionesbasicas.html'">Operaciones basicas</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </div>
+
     <div class="menu">
         <button id="hamburger" onclick="menu()">
             <img src="../img/menu_hamburger.svg" width="48px" height="48px">
@@ -24,56 +60,80 @@
             </button>
         </nav>
     </div>
-    <div class="container">
-            <!-- Sección de Descripción -->
-            <div class="descripcion">
-
+    
+    
+    <div class="page">
+        <div class="bloc">
+            <div class="fixed-bloc">
                 <!-- Sección de Descripción -->
-                <h2>Introducción a la Ecuación Cuártica</h2>
-                <p>La ecuación cuártica, expresada como y = ax⁴ + bx³ + cx² + dx + e, es una fórmula para definir curvas de cuarto grado en un plano. Estas ecuaciones representan una gama más amplia de comportamientos y formas en comparación con las ecuaciones lineales, cuadráticas y cúbicas, permitiendo modelar fenómenos más complejos y diversas formas de curvatura.</p>
-
+                <!-- Accordion Item 1 -->
+                <div class="accordion" id="accordion1">
+                    <div class="accordion-header" onclick="handleOpen(1)">
+                        <span class="accordion-icon" id="icon1"></span>
+                        <h1 class="titu">Introducción a la Ecuación Cuártica</h1>
+                    </div>
+                    <div class="accordion-body" id="body1">
+                        <p>La ecuación cuártica, expresada como y = ax⁴ + bx³ + cx² + dx + e, es una fórmula para definir curvas de cuarto grado en un plano. Estas ecuaciones representan una gama más amplia de comportamientos y formas en comparación con las ecuaciones lineales, cuadráticas y cúbicas, permitiendo modelar fenómenos más complejos y diversas formas de curvatura.</p>
+                    </div>
+                </div>
 
                 <!-- Sección Cómo Funciona -->
-                <h2>Cómo Funciona</h2>
-                <p>Esta aplicación te permite visualizar gráficamente la ecuación cuártica. Simplemente ingresa los valores para 'a', 'b', 'c', 'd', y 'e' en los campos proporcionados y haz clic en "Calcular". Verás cómo la gráfica refleja la curva cuártica basada en los coeficientes que ingresaste. Utiliza las herramientas de zoom y arrastre para examinar la gráfica en detalle y comprender mejor cómo cada término afecta la forma de la curva.</p>
-                       
+                <!-- Accordion Item 2 -->
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-header" onclick="handleOpen(2)">
+                        <span class="accordion-icon" id="icon2"></span>
+                        <h1>Cómo Funciona</h1>
+                    </div>
+                    <div class="accordion-body" id="body2">
+                        <p>Esta aplicación te permite visualizar gráficamente la ecuación cuártica. Simplemente ingresa los valores para 'a', 'b', 'c', 'd', y 'e' en los campos proporcionados y haz clic en "Calcular". Verás cómo la gráfica refleja la curva cuártica basada en los coeficientes que ingresaste. Utiliza las herramientas de zoom y arrastre para examinar la gráfica en detalle y comprender mejor cómo cada término afecta la forma de la curva.</p>
+                    </div>
                 </div>
-        <h1>Ecuación Cuártica: y = ax⁴ + bx³ + cx² + dx + e</h1>
-        <form id="quarticForm">
-            <div>
-                <label for="a">a:</label>
-                <input type="number" id="a" name="a" required>
-           
-                <label for="b">b:</label>
-                <input type="number" id="b" name="b" required>
-          
-                <label for="c">c:</label>
-                <input type="number" id="c" name="c" required>
-          
-                <label for="d">d:</label>
-                <input type="number" id="d" name="d" required>
-            
-                <label for="e">e:</label>
-                <input type="number" id="e" name="e" required>
-            </div>
-            <button type="button" onclick="calcularEcuacionCuarta()">Calcular</button>
-        </form>
-        <div id="graficoLineal" style="width: 500px; height: 500px;">
-            <canvas id="graficoCanvas" width="500" height="500"></canvas>
-        </div>
-        <div class="zoom-controls">
-            <button onclick="zoomOut()">-</button>
-            <input type="number" id="zoomInput" value="1" min="0.1" step="0.1">
-            <button onclick="zoomIn()">+</button>
-            <br>
-            <button onclick="actualizarZoomManual()">Actualizar Zoom</button>
-            <br>
-            <span id="zoomLevel">Zoom: 1x</span>
 
+                <h1>Ecuación Cuártica: y = ax⁴ + bx³ + cx² + dx + e</h1>
+                <form id="quarticForm">
+                    <div>
+                        <label for="a">a:</label>
+                        <input type="number" id="a" name="a" required>
+                   
+                        <label for="b">b:</label>
+                        <input type="number" id="b" name="b" required>
+                  
+                        <label for="c">c:</label>
+                        <input type="number" id="c" name="c" required>
+                  
+                        <label for="d">d:</label>
+                        <input type="number" id="d" name="d" required>
+                    
+                        <label for="e">e:</label>
+                        <input type="number" id="e" name="e" required>
+                    </div>
+                    <button type="button" onclick="calcularEcuacionCuarta()">Calcular</button>
+                </form>
+            </div>
+            <div id=opened-bloc hidden>
+                <p id="reponse">
+                    <div id="graficoLineal" style="width: 500px; height: 500px;">
+                        <canvas id="graficoCanvas" width="500" height="500"></canvas>
+                    </div>
+                    <div class="zoom-controls">
+                        <button onclick="zoomOut()">-</button>
+                        <input type="number" id="zoomInput" value="1" min="0.1" step="0.1">
+                        <button onclick="zoomIn()">+</button>
+                        <br>
+                        <button onclick="actualizarZoomManual()">Actualizar Zoom</button>
+                        <br>
+                        <span id="zoomLevel">Zoom: 1x</span>
+            
+                    </div>
+                </p>
+            </div>
         </div>
     </div>
+
     <div id="overlay" onclick="menu()" hidden></div>
-   
+    <footer>
+        <p>&copy; 2024 Calculadora</p>
+    </footer>
 </body>
 </html>
 

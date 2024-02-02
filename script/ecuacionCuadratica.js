@@ -8,6 +8,27 @@ let lastMouseX, lastMouseY;
 // Calcula y grafica la ecuación cuadrática
 function calcularEcuacionCuadratica() {
     aActual = parseFloat(document.getElementById('a').value);
+
+    // Validar campos vacíos
+    if ( !aActual ) {
+        alert("Por favor, completa todos los campos con valores numéricos.");
+        return;
+    }
+
+    // Validar si son números reales
+    if (isNaN(aActual) ) {
+        alert("Ingresa valores numéricos válidos en todos los campos.");
+        return;
+    }
+
+    // Limitar los valores numéricos hasta 1000
+    if (Math.abs(aActual) > 1000 ) {
+        alert("Ingresa valores numéricos menores o iguales a 1000 en todos los campos.");
+        return;
+    }
+
+    document.getElementById('opened-bloc').toggleAttribute('hidden', false)
+
     graficarEcuacionCuadratica(aActual, zoomFactorCuadratica);
 }
 

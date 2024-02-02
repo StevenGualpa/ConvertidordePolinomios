@@ -13,6 +13,26 @@ function calcularEcuacionCubica() {
     eActual = parseFloat(document.getElementById('e').value);
     fActual = parseFloat(document.getElementById('f').value);
 
+    // Validar campos vacíos
+    if ( !aActual || !bActual || !cActual || !dActual || !eActual || !fActual) {
+        alert("Por favor, completa todos los campos con valores numéricos.");
+        return;
+    }
+
+    // Validar si son números reales
+    if (isNaN(aActual) || isNaN(bActual) || isNaN(cActual) || isNaN(dActual) || isNaN(eActual) || isNaN(fActual)) {
+        alert("Ingresa valores numéricos válidos en todos los campos.");
+        return;
+    }
+
+    // Limitar los valores numéricos hasta 1000
+    if (Math.abs(aActual) > 1000 || Math.abs(bActual) > 1000 || Math.abs(cActual) > 1000 || Math.abs(eActual) > 1000 || Math.abs(fActual) > 1000) {
+        alert("Ingresa valores numéricos menores o iguales a 1000 en todos los campos.");
+        return;
+    }
+
+    document.getElementById('opened-bloc').toggleAttribute('hidden', false)
+
     graficarEcuacionCubica();
 }
 

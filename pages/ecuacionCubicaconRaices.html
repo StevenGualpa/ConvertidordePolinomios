@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/ecuacionlineal.css">
     <link rel="stylesheet" href="../CSS/menu.css">
+    <link rel="stylesheet" href="../CSS/barramenu.css" />
     <link id="icon-page" rel="icon" type="image/png" href="../img/polynomial_icon.svg">
     <title>Ecuación Cúbica con Raíces</title>
 </head>
+
 <body>
+
+    <div class="menu_container">
+        <div class="tutorial">
+            <ul>
+                <li onclick="location.href='../index.html'">
+                    <h3>Pagina Pincipal</h3>
+                </li>
+                <li>
+                    <h3>Graficas de Ecuaciones</h3>
+                    <ul>
+                        <li onclick="location.href='ecuacionLineal.html'">Ecuación Lineal
+                        </li>
+                        <li onclick="location.href='ecuacionCuadratica.html'">Ecuación Cuadratica
+                        </li>
+                        <li onclick="location.href='ecuacionPolinomica.html'">Ecuación Polinómica</li>
+                        <li onclick="location.href='ecuaciontrinomio.html'">Ecuación Polinómica General</li>
+                        <li onclick="location.href='ecuacionCubica.html'">Ecuación Polinomica Cúbica</li>
+                        <li onclick="location.href='ecuaciongradosuperior.html'">Ecuación Polinomica de Grado Superior
+                        </li>
+                        <li onclick="location.href='ecuacionCubicaconRaices.html'">Ecuación Cúbica con Raíces</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Convertidores</h3>
+                    <ul>
+                        <li onclick="location.href='cuadratico.html'">Polinomios cuadraticos</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Otras Operaciones</h3>
+                    <ul>
+                        <li onclick="location.href='operacionesbasicas.html'">Operaciones basicas</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div class="menu">
         <!-- Menú aquí -->
         <button id="hamburger" onclick="menu()">
@@ -25,35 +66,78 @@
             </button>
         </nav>
     </div>
-    <div class="container">
-        <h1>Ecuación Cúbica con Raíces: y = ax³ + bx² + cx + d + e√x + f∛x</h1>
-        <form id="cubicForm">
-            <div><label for="a">a:</label><input type="number" id="a" required>
-            <label for="b">b:</label><input type="number" id="b" required>
-            <label for="c">c:</label><input type="number" id="c" required>
-            <label for="d">d:</label><input type="number" id="d" required>
-            <label for="e">e:</label><input type="number" id="e" required>
-            <label for="f">f:</label><input type="number" id="f" required></div>
-            <button type="button" onclick="calcularEcuacionCubica()">Graficar</button>
-        </form>
-        <div id="graficoLineal" style="width: 500px; height: 500px;">
-            <canvas id="graficoCanvas" width="500" height="500"></canvas>
-        </div>
-        <!-- Controles de zoom y otros aquí -->
-        <div class="zoom-controls">
-            <button onclick="zoomOut()">-</button>
-            <input type="number" id="zoomInput" value="1" min="0.1" step="0.1">
-            <button onclick="zoomIn()">+</button><br>
-            <button onclick="actualizarZoomManual()">Actualizar Zoom</button>
-            <br>
-            <span id="zoomLevel">Zoom: 1x</span>
+    <div class="page">
+        <div class="bloc">
+            <div class="fixed-bloc">
+                <!-- Sección de Descripción -->
+                <!-- Accordion Item 1 -->
+                <div class="accordion" id="accordion1">
+                    <div class="accordion-header" onclick="handleOpen(1)">
+                        <span class="accordion-icon" id="icon1"></span>
+                        <h1 class="titu">Introducción a la Ecuación Lineal</h1>
+                    </div>
+                    <div class="accordion-body" id="body1">
+                        <p>La ecuación lineal de la forma y = mx + b es una de las formas más básicas y fundamentales en
+                            el
+                            álgebra. Aquí, 'm' representa la pendiente de la línea, mientras que 'b' es el punto donde
+                            la
+                            línea intercepta el eje Y. Esta herramienta te permite visualizar la gráfica de la ecuación
+                            lineal y entender su comportamiento.</p>
+                    </div>
+                </div>
+
+                <!-- Sección Cómo Funciona -->
+                <!-- Accordion Item 2 -->
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-header" onclick="handleOpen(2)">
+                        <span class="accordion-icon" id="icon2"></span>
+                        <h1>Cómo Funciona</h1>
+                    </div>
+                    <div class="accordion-body" id="body2">
+                        <p>Esta aplicación permite graficar ecuaciones lineales de la forma y = mx + b. Simplemente
+                            introduce los valores de 'm' y 'b' en los campos correspondientes y presiona "Calcular". El
+                            gráfico se actualizará automáticamente para reflejar la ecuación proporcionada. Puedes
+                            utilizar
+                            las herramientas de zoom y arrastre para explorar diferentes partes del gráfico.</p>
+                    </div>
+                </div>
+
+                <h1>Ecuación Cúbica con Raíces: y = ax³ + bx² + cx + d + e√x + f∛x</h1>
+                <form id="cubicForm">
+                    <div><label for="a">a:</label><input type="number" id="a" required>
+                        <label for="b">b:</label><input type="number" id="b" required>
+                        <label for="c">c:</label><input type="number" id="c" required>
+                        <label for="d">d:</label><input type="number" id="d" required>
+                        <label for="e">e:</label><input type="number" id="e" required>
+                        <label for="f">f:</label><input type="number" id="f" required>
+                    </div>
+                    <button type="button" onclick="calcularEcuacionCubica()">Graficar</button>
+                </form>
+            </div>
+            <div id=opened-bloc hidden>
+                <p id="reponse">
+                    <div id="graficoLineal" style="width: 500px; height: 500px;">
+                        <canvas id="graficoCanvas" width="500" height="500"></canvas>
+                    </div>
+                    <!-- Controles de zoom y otros aquí -->
+                    <div class="zoom-controls">
+                        <button onclick="zoomOut()">-</button>
+                        <input type="number" id="zoomInput" value="1" min="0.1" step="0.1">
+                        <button onclick="zoomIn()">+</button><br>
+                        <button onclick="actualizarZoomManual()">Actualizar Zoom</button>
+                        <br>
+                        <span id="zoomLevel">Zoom: 1x</span>
+                    </div>
+                </p>
+            </div>
         </div>
     </div>
     <footer>
         <!-- Contenido del pie de página -->
-        <p>&copy; 2024 Convertidor de Polinomios</p>
+        <p>&copy; 2024 Calculadora</p>
     </footer>
 </body>
 <script src="../script/ecuacioncubicaraices.js"></script>
 <script src="../script/menu.js"></script>
+
 </html>

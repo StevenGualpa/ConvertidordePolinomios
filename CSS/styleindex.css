@@ -22,14 +22,19 @@ iframe {
 }
 
 
-
-body {
-    font-family: Arial, sans-serif;
+html ,body {
+    font-family: 'Open Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--couleur1);
+    background-color: var(--couleur2);
+    height: 100%;
 }
 
+.page{
+    box-sizing: border-box; /* Asegura que el padding y el borde no afecten el tamaño total */
+    padding: 20px; /* Puedes ajustar el espacio alrededor del contenido según tus necesidades */
+
+}
 
 .center-container {
     display: flex;
@@ -93,13 +98,12 @@ h1 {
     color: var(--couleur3);
     margin-top: 20px;
     margin-bottom: 30px;
-    
 }
 
 .titulo{
     margin-top: 20px; 
     text-align: center;
-    background-color: var(--couleur1);
+    background-color: var(--couleur2);
     margin: 0;
     padding: 0;
 }
@@ -129,12 +133,4 @@ button:hover {
     background-color: var(--couleur4-2);
     box-shadow: 5px 3px 12px 5px rgba(0,0,0,0.1);
     transform: scale3d(1.05, 1.05, 1.05);
-}
-
-footer {
-    background-color: #333; /* Color de fondo del pie de página */
-    color: #fff; /* Color de texto en el pie de página */
-    text-align: center;
-    padding: 10px;
-    font-size: 20px;
 }

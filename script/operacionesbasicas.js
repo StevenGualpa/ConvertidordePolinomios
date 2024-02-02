@@ -10,7 +10,7 @@ function clic() {
     var c2 = parseFloat(document.getElementsByName("c")[1].value);
 
     // Validar campos vacíos
-    if (isNaN(a1) || isNaN(b1) || isNaN(c1) || isNaN(a2) || isNaN(b2) || isNaN(c2) || !a1 || !b1 || !c1 || !a2 || !b2 || !c2) {
+    if ( !a1 || !b1 || !c1 || !a2 || !b2 || !c2) {
         alert("Por favor, completa todos los campos con valores numéricos.");
         return;
     }
